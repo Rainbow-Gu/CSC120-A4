@@ -1,22 +1,30 @@
 /** Store information about an individual passenger 
  * It implements the PassengerRequirements interface
  */ 
-public class Passenger {
+public class Passenger implements PassengerRequirements {
     
-    /** Attribute */
+    /**
+     * Attribute
+     */
     private String name;
 
-    /** Constructor */
+    /**
+     * Constructor
+     */
     public Passenger(String name) {
         this.name = name;
     }
 
-    /** Display Passenger class as string for passenger name readability */
+    /**
+     * Display Passenger class as string for passenger name readability
+     */
     public String toString() {
         return name;
     }
 
-    /** Getter for passenger's name */
+    /**
+     * Getter for passenger's name
+     */
     public String getName() {
         return name;
     }
@@ -55,14 +63,14 @@ public class Passenger {
      * @param args Command line arguments
      */
     public static void main(String[] args) {
-        Passenger John = new Passenger("John");
-        Passenger Mia = new Passenger("Mia");
+        Passenger john = new Passenger("John");
+        // Passenger mia = new Passenger("Mia");
         Car car = new Car(1);
         System.out.println("\nTest Passenger class");
-        John.boardCar(car);
-        John.getOffCar(car);
+        john.boardCar(car);
+        john.getOffCar(car);
         // John.getOffCar(car); // should run exception
-        John.boardCar(car);
+        john.boardCar(car);
         // Mia.boardCar(car); // should run exception
     }
 }

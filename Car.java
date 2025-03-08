@@ -4,29 +4,39 @@ import java.util.ArrayList;
  * Used as a container for Passenger objects 
  * It implements CarRequirements interface
 */
-public class Car {
+public class Car implements CarRequirements {
     
-    /** Attributes */
+    /**
+     * Attributes
+     */
     private ArrayList<Passenger> passengersOnboard;
     private int maxCapacity;
 
-    /** Constructor */
+    /**
+     * Constructor
+     */
     public Car(int maxCapacity) {
         this.maxCapacity = maxCapacity;
         this.passengersOnboard = new ArrayList<>();
     }
     
-    /** Display Car class as string for car capacity readability */
+    /**
+     * Display Car class as string for car capacity readability
+     */
     public String toString() {
         return "with capacity of " + maxCapacity;
     }
 
-    /** Getter for the maximum capacity of the car */
+    /**
+     * Getter for the maximum capacity of the car
+     */
     public int getCapacity() {
         return maxCapacity;
     }
 
-    /** Getter for the number of remaining seats in the car */
+    /** 
+     * Getter for the number of remaining seats in the car
+     */
     public int seatsRemaining() {
         return maxCapacity - passengersOnboard.size();
     }
@@ -36,7 +46,7 @@ public class Car {
      * @param p Passenger to be added
      * @return True if the passenger was successfully added, otherwise false
      */
-    public boolean addPassenger(Passenger p) {
+    public Boolean addPassenger(Passenger p) {
         if (maxCapacity > passengersOnboard.size()) {
             passengersOnboard.add(p);
             System.out.println("\nPassenger " + p + " aboarded the car.");
@@ -52,7 +62,7 @@ public class Car {
      * @param p The passenger to be removed
      * @return True if the passenger was successfully removed, otherwise false
      */
-    public boolean removePassenger(Passenger p) {
+    public Boolean removePassenger(Passenger p) {
         if (passengersOnboard.contains(p)) {
             passengersOnboard.remove(p);
             System.out.println("\nPassenger " + p + " is removed from the car.");
@@ -85,14 +95,14 @@ public class Car {
     public static void main(String[] args) {
         System.out.println("\nTest Car class");
         Car myCar = new Car(1);
-        Passenger Kaia = new Passenger("Kaia");
-        Passenger John = new Passenger("John");
-        myCar.removePassenger(John); // should not remove John
-        myCar.addPassenger(Kaia);
-        myCar.removePassenger(Kaia);
+        Passenger kaia = new Passenger("Kaia");
+        Passenger john = new Passenger("John");
+        myCar.removePassenger(john); // should not remove John
+        myCar.addPassenger(kaia);
+        myCar.removePassenger(kaia);
         myCar.printManifest(); // should print empty car
-        myCar.addPassenger(Kaia);
-        myCar.addPassenger(John); // should not add
+        myCar.addPassenger(kaia);
+        myCar.addPassenger(john); // should not add
         myCar.printManifest();
 
     }

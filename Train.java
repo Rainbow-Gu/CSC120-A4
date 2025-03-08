@@ -1,17 +1,20 @@
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Assemble Train by tieing Car, Engine, Passenger together 
  * Implements TrainRequirements interface
 */
-public class Train {
+public class Train implements TrainRequirements {
 
-    /** Attributes */ 
+    /**
+     * Attributes
+     */ 
     private Engine engine;
     private ArrayList<Car> carsList;
     
-    /** Constructor */
+    /** 
+     * Constructor 
+     */
     public Train(FuelType fuelType, double currentFuelLevel, double fuelCapacity, int nCars, int passengerCapacity) {
         this.engine = new Engine(fuelType, currentFuelLevel, fuelCapacity); 
         this.carsList = new ArrayList<Car>(nCars);
@@ -21,12 +24,16 @@ public class Train {
 
     }
     
-    /** Getter for Engine */
+    /** 
+     * Getter for Engine 
+     */
     public Engine getEngine() {
         return engine;
     }
     
-    /** Getter for Car Index */
+    /** 
+     * Getter for Car Index 
+     */
     public Car getCar(int i) {
         if (i <= carsList.size()) {
             return carsList.get(i);
@@ -35,7 +42,9 @@ public class Train {
         }
     }
     
-    /** Getter for maximum total capacity across all Cars */
+    /**
+     * Getter for maximum total capacity across all Cars
+     */
     public int getMaxCapacity() {
         int totalCapacity = 0;
         for (Car car : carsList) {
@@ -44,7 +53,10 @@ public class Train {
         return totalCapacity;
     }
     
-    /** Return the number of remaining open seats across all Cars */
+    /** 
+     * Return the number of remaining open seats across all Cars
+     * @return totalRemaining integer of remaining seats in the car
+     */
     public int seatsRemaining() {
         int totalRemaining = 0;
         for (Car car : carsList) {
@@ -53,7 +65,9 @@ public class Train {
         return totalRemaining;
     }
     
-    /** Prints a roster of all Passengers onboard */
+    /** 
+     * Prints a roster of all Passengers onboard 
+     */
     public void printManifest() {
         for (int i = 0; i < carsList.size(); i++) {
             System.out.println("\nCar " + (i+1));
@@ -67,15 +81,15 @@ public class Train {
      */
     public static void main(String[] args) {
         Train myTrain = new Train(FuelType.ELECTRIC, 12, 24, 4, 3);
-        Passenger Kaia = new Passenger("Kaia");
-        Passenger John = new Passenger("John");
-        Passenger Mia = new Passenger("Mia"); 
+        Passenger kaia = new Passenger("Kaia");
+        Passenger john = new Passenger("John");
+        Passenger mia = new Passenger("Mia"); 
         System.out.println("\nTest Train Class");
         System.out.println("The maximum capacity of the train is " + myTrain.getMaxCapacity() + ".");
-        John.boardCar(myTrain.getCar(0));
+        john.boardCar(myTrain.getCar(0));
         // myTrain.getCar(5); // should run exception
-        Kaia.boardCar(myTrain.getCar(2));
-        Mia.boardCar(myTrain.getCar(3));
+        kaia.boardCar(myTrain.getCar(2));
+        mia.boardCar(myTrain.getCar(3));
         myTrain.printManifest();
         System.out.println("\n" + myTrain.seatsRemaining() + " seats remains.");
     }

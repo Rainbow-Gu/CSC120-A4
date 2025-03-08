@@ -2,31 +2,41 @@
  * The Engine class represent the locomotive engine, storing information about its fuel type, level, etc.
  * It Implements the interface EngineRequirements
  */
-public class Engine {
+public class Engine implements EngineRequirements {
     
-    /** Attributes */
+    /**
+     * Attributes
+     */
     private FuelType fuel;
     private double currentFuelLevel;
     private double maxFuelLevel;
 
-    /** Constructor */
+    /** 
+     * Constructor 
+     */
     public Engine(FuelType fuel, double currentFuelLevel, double maxFuelLevel) {
         this.fuel = fuel;
         this.currentFuelLevel = currentFuelLevel;
         this.maxFuelLevel = maxFuelLevel;
     }
     
-    /** Getter for fuel type */
+    /**
+     * Getter for fuel type
+     */
     public FuelType getFuelType() {
         return fuel;
     }
 
-    /** Getter for current fuel level */
+    /** 
+     * Getter for current fuel level 
+     */
     public double getCurrentFuel() {
         return currentFuelLevel;
     }
 
-    /** Getter for max fuel level */
+    /** 
+     * Getter for max fuel level 
+     */
     public double getMaxFuel() {
         return maxFuelLevel;
     }
@@ -43,7 +53,7 @@ public class Engine {
      * Print information of fuel status
      * @return True if the fuel level is above 0 and False otherwise.
      */
-    public boolean go() { 
+    public Boolean go() { 
         if (currentFuelLevel > 0) {
             currentFuelLevel -= 2;
             System.out.println("Remaining Fuel Level: " + currentFuelLevel + ".");
