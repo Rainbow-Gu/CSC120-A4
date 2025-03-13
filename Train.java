@@ -14,6 +14,11 @@ public class Train implements TrainRequirements {
     
     /** 
      * Constructor 
+     * @param FuelType user specified one type of fuel coded in FuelType file
+     * @param currentFuelLevel how many fuel does the train currently have
+     * @param fuelCapacity how much fuel can the train have in maximum
+     * @param nCars number of cars the train would have
+     * @param passengerCapacity maximum number of passenger a car can contain
      */
     public Train(FuelType fuelType, double currentFuelLevel, double fuelCapacity, int nCars, int passengerCapacity) {
         this.engine = new Engine(fuelType, currentFuelLevel, fuelCapacity); 

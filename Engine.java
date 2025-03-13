@@ -13,6 +13,9 @@ public class Engine implements EngineRequirements {
 
     /** 
      * Constructor 
+     * @param fuel user specified one type of fuel coded in FuelType file
+     * @param currentFuelLevel how many fuel does the train currently have
+     * @param maxFuelLevel how much fuel can the train have in maximum
      */
     public Engine(FuelType fuel, double currentFuelLevel, double maxFuelLevel) {
         this.fuel = fuel;

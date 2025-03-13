@@ -14,6 +14,7 @@ public class Car implements CarRequirements {
 
     /**
      * Constructor
+     * @param maxCapacity maximum number of passengers allowed on car
      */
     public Car(int maxCapacity) {
         this.maxCapacity = maxCapacity;

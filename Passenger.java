@@ -10,6 +10,7 @@ public class Passenger implements PassengerRequirements {
 
     /**
      * Constructor
+     * @param name user-specified name of the passenger
      */
     public Passenger(String name) {
         this.name = name;
